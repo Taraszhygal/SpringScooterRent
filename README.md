@@ -1,10 +1,10 @@
 # SpringScooterRent 
 -----------------------
-#AP-Java-Spring Boot-MySQL-Project
+# AP-Java-Spring Boot-MySQL-Project
 Last lab on Spring Boot and mySql
 
-#Educational program
+# Educational program
 University NULP educational program of Application Programming.
 
-#Code written by Taraszhygal
+# Code written by Taraszhygal
 NULP student
