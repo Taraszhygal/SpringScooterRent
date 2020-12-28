@@ -17,7 +17,7 @@ CRUD for User
 CRUD for Order
 get orders for user
 add to cart/remove from/get cart
-==============================
+==============================  
 unit test
 int test
 =======
@@ -25,14 +25,7 @@ will be done :
 exceptions
 REST API
 simulate DB
-як закинути на git:
-0. git clone повна_урла_до_репозиторію
-1. git init
-2. додаєте .gitignore файл
-3. git status - покаже статус файлів проекту
-4. git add .
-5. git commit -m "назва коміту"
-3. VCS -> Import into Version Control -> Share project on Github
+
 --master бренча--
 git checkout -b назва_нової_бренчі
 git add .
