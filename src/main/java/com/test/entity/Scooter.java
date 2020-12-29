@@ -11,11 +11,9 @@ public class Scooter {
     private Long scooterID;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "model_id", nullable = false)
     private Model model;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
     public Scooter() {

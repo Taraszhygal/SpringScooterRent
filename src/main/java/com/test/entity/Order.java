@@ -19,10 +19,10 @@ public class Order {
     private String userPhoneNumber;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Scooter.class, mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id", nullable = false)
     private List<Scooter> scooterList;
 
     public Order() {

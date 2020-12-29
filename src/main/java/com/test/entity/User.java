@@ -17,8 +17,9 @@ public class User {
     private String password;
     private int phoneNumber;
 
-    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<Order> products;
+    @OneToMany(targetEntity = Order.class, mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false)
+    private List<Order> orderList;
 
     public User() {
     }
@@ -79,12 +80,12 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Order> getProducts() {
-        return products;
+    public List<Order> getOrderList() {
+        return orderList;
     }
 
-    public void setProducts(List<Order> products) {
-        this.products = products;
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
     }
 
     @Override
@@ -93,11 +94,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return phoneNumber == user.phoneNumber && Objects.equals(userID, user.userID) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(products, user.products);
+        return phoneNumber == user.phoneNumber && Objects.equals(userID, user.userID) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(orderList, user.orderList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userID, firstName, lastName, mail, password, phoneNumber, products);
+        return Objects.hash(userID, firstName, lastName, mail, password, phoneNumber, orderList);
     }
 }
