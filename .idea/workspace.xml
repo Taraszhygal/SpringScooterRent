@@ -8,18 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="902a400d-1ca3-477f-b3f1-24a6655a83bb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5e561ce1-2cbe-4e52-9965-2a7cd855eea0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5e561ce1-2cbe-4e52-9965-2a7cd855eea0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/entity/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/test/entity/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/test/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/entity/Scooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/test/entity/Scooter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/test/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/repository/ScooterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/test/repository/ScooterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/test/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/test/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/test/HelloController.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +267,7 @@
       <workItem from="1608989810859" duration="5969000" />
       <workItem from="1609073739416" duration="40696000" />
       <workItem from="1609458264864" duration="3885000" />
-      <workItem from="1609582817647" duration="25532000" />
+      <workItem from="1609582817647" duration="26025000" />
     </task>
     <servers />
   </component>
