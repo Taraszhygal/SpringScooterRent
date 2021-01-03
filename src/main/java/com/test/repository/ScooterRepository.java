@@ -4,5 +4,5 @@ import com.test.entity.Scooter;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ScooterRepository extends JpaRepository<Scooter,Long> {
-
+    Scooter findScooterById(Long id);
 }

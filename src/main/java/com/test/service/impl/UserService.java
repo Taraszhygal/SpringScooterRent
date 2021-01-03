@@ -6,7 +6,6 @@ import com.test.exeption.ServiceException;
 import com.test.mapper.UserMapper;
 import com.test.repository.UserRepository;
 import com.test.service.IUserService;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,24 +49,28 @@ public class UserService implements IUserService {
     @Override
     public List<UserDTO> getAll() {
         List<User> all = userRepository.findAll();
+        if(all.isEmpty()){
+            throw new ServiceException(400, "There aren`t users", null);
+        }
         return all.stream().map(userMapper::toDTO).collect(Collectors.toList());
     }
 
     @Override
-    public UserDTO updateUser(UserDTO userDTO, Long id){
+    public UserDTO updateUser(UserDTO userDTO, Long id) {
         User user = userMapper.toEntity(userDTO);
         User updatedUser = userRepository.findUserById(id);
-        if(updatedUser != null && id!=0){
-                updatedUser.setPhoneNumber(user.getPhoneNumber());
-                updatedUser.setFirstName(user.getFirstName());
-                updatedUser.setLastName(user.getLastName());
-                updatedUser.setMail(user.getMail());
-                userRepository.save(updatedUser);
-                userDTO=userMapper.toDTO(updatedUser);
+        if (updatedUser != null && id != 0) {
+            updatedUser.setPhoneNumber(user.getPhoneNumber());
+            updatedUser.setFirstName(user.getFirstName());
+            updatedUser.setLastName(user.getLastName());
+            updatedUser.setMail(user.getMail());
+            userRepository.save(updatedUser);
+            userDTO = userMapper.toDTO(updatedUser);
+            return userDTO;
         } else {
-            throw new ServiceException(400,"User should have an id",null);
+            throw new ServiceException(400, "User should have an id", null);
         }
-    return userDTO;
+
     }
 
 }

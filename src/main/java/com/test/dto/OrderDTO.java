@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 public class OrderDTO {
     private Long orderID;
     private LocalDateTime startLocalDateTime;
-    private Long userID;
     private String firstName;
     private String lastName;
     private String userMail;
@@ -16,10 +15,9 @@ public class OrderDTO {
     public OrderDTO() {
     }
 
-    public OrderDTO(Long orderID, LocalDateTime startLocalDateTime, Long userID, String firstName, String lastName, String userMail, String userPhoneNumber) {
+    public OrderDTO(Long orderID, LocalDateTime startLocalDateTime, String firstName, String lastName, String userMail, String userPhoneNumber) {
         this.orderID = orderID;
         this.startLocalDateTime = startLocalDateTime;
-        this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userMail = userMail;
@@ -40,14 +38,6 @@ public class OrderDTO {
 
     public void setStartLocalDateTime(LocalDateTime startLocalDateTime) {
         this.startLocalDateTime = startLocalDateTime;
-    }
-
-    public Long getUserID() {
-        return userID;
-    }
-
-    public void setUserID(Long userID) {
-        this.userID = userID;
     }
 
     public String getFirstName() {
