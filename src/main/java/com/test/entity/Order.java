@@ -11,68 +11,42 @@ import java.util.Objects;
 @Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue
-    private Long orderID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @DateTimeFormat(pattern = "YYYY-MM-DD hh:mm:ss")
     private LocalDateTime startLocalDateTime;
-    private String userMail;
-    private String userPhoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private User user;
 
-    @OneToMany(targetEntity = Scooter.class, mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id", nullable = false)
+    @OneToMany( mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+  //  @JoinColumn(name = "order_id", nullable = false)
     private List<Scooter> scooterList;
 
     public Order() {
     }
 
-    public Order(LocalDateTime startLocalDateTime, String userMail, String userPhoneNumber, User user, List<Scooter> scooterList) {
+    public Order(Long orderID, LocalDateTime startLocalDateTime, User user, List<Scooter> scooterList) {
+        this.id = orderID;
         this.startLocalDateTime = startLocalDateTime;
-        this.userMail = userMail;
-        this.userPhoneNumber = userPhoneNumber;
         this.user = user;
         this.scooterList = scooterList;
-    }
-
-    public Order(LocalDateTime startLocalDateTime, String userMail, String userPhoneNumber, User user) {
-        this.startLocalDateTime = startLocalDateTime;
-        this.userMail = userMail;
-        this.userPhoneNumber = userPhoneNumber;
-        this.user = user;
     }
 
     public LocalDateTime getStartLocalDateTime() {
         return startLocalDateTime;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long orderID) {
+        this.id = orderID;
+    }
+
     public void setStartLocalDateTime(LocalDateTime startLocalDateTime) {
         this.startLocalDateTime = startLocalDateTime;
-    }
-
-    public String getUserMail() {
-        return userMail;
-    }
-
-    public Long getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(Long orderID) {
-        this.orderID = orderID;
-    }
-
-    public void setUserMail(String userMail) {
-        this.userMail = userMail;
-    }
-
-    public String getUserPhoneNumber() {
-        return userPhoneNumber;
-    }
-
-    public void setUserPhoneNumber(String userPhoneNumber) {
-        this.userPhoneNumber = userPhoneNumber;
     }
 
     public User getUser() {
@@ -83,17 +57,35 @@ public class Order {
         this.user = user;
     }
 
+    public List<Scooter> getScooterList() {
+        return scooterList;
+    }
+
+    public void setScooterList(List<Scooter> scooterList) {
+        this.scooterList = scooterList;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this.hashCode() != o.hashCode()) return false;
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Objects.equals(orderID, order.orderID) && Objects.equals(startLocalDateTime, order.startLocalDateTime) && Objects.equals(userMail, order.userMail) && Objects.equals(userPhoneNumber, order.userPhoneNumber) && Objects.equals(user, order.user);
+        return Objects.equals(id, order.id) && Objects.equals(startLocalDateTime, order.startLocalDateTime)  && Objects.equals(user, order.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderID, startLocalDateTime, userMail, userPhoneNumber, user);
+        return Objects.hash(id, startLocalDateTime, user);
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderID=" + id +
+                ", startLocalDateTime=" + startLocalDateTime +
+                ", user=" + user +
+                ", scooterList=" + scooterList +
+                '}';
     }
 }

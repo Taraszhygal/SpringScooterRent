@@ -8,23 +8,23 @@ import java.util.Objects;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue
-    private Long userID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String firstName;
     private String lastName;
     @Column(unique = true)
     private String mail;
     private String password;
-    private int phoneNumber;
+    private String phoneNumber;
 
-    @OneToMany(targetEntity = Order.class, mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
+ //   @JoinColumn(name = "user_id", nullable = false)
     private List<Order> orderList;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String mail, String password, int phoneNumber) {
+    public User(String firstName, String lastName, String mail, String password, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
@@ -32,12 +32,12 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public Long getUserID() {
-        return userID;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserID(Long userID) {
-        this.userID = userID;
+    public void setId(Long userID) {
+        this.id = userID;
     }
 
     public String getFirstName() {
@@ -72,11 +72,11 @@ public class User {
         this.password = password;
     }
 
-    public int getPhoneNumber() {
+    public String  getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String  phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -94,11 +94,23 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return phoneNumber == user.phoneNumber && Objects.equals(userID, user.userID) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(orderList, user.orderList);
+        return phoneNumber == user.phoneNumber && Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(orderList, user.orderList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userID, firstName, lastName, mail, password, phoneNumber, orderList);
+        return Objects.hash(id, firstName, lastName, mail, password, phoneNumber, orderList);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

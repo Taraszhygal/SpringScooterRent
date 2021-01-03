@@ -7,8 +7,8 @@ import java.util.Objects;
 @Table(name = "scooters")
 public class Scooter {
     @Id
-    @GeneratedValue
-    private Long scooterID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Model model;
@@ -24,12 +24,12 @@ public class Scooter {
         this.order = order;
     }
 
-    public Long getScooterID() {
-        return scooterID;
+    public Long getId() {
+        return id;
     }
 
-    public void setScooterID(Long scooterID) {
-        this.scooterID = scooterID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Model getModel() {
@@ -54,11 +54,19 @@ public class Scooter {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Scooter scooter = (Scooter) o;
-        return Objects.equals(scooterID, scooter.scooterID) && Objects.equals(model, scooter.model) && Objects.equals(order, scooter.order);
+        return Objects.equals(id, scooter.id) && Objects.equals(model, scooter.model) && Objects.equals(order, scooter.order);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(scooterID, model, order);
+        return Objects.hash(id, model, order);
+    }
+
+    @Override
+    public String toString() {
+        return "Scooter{" +
+                "scooterID=" + id +
+                ", model=" + model +
+                '}';
     }
 }

@@ -9,8 +9,8 @@ import java.util.Objects;
 @Table(name = "models")
 public class Model {
     @Id
-    @GeneratedValue
-    private Long modelID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String modelName;
     private int count;
     private int price;
@@ -18,7 +18,7 @@ public class Model {
     private int maxWeight;
 
     @OneToMany(mappedBy = "model", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "model_id", nullable = false)
+  //  @JoinColumn(name = "model_id", nullable = false)
     private List<Scooter> scooters;
 
     public Model(String modelName, int count, int price, int enginePower, int maxWeight, List<Scooter> scooters) {
@@ -34,12 +34,12 @@ public class Model {
 
     }
 
-    public Long getModelID() {
-        return modelID;
+    public Long getId() {
+        return id;
     }
 
-    public void setModelID(Long modelID) {
-        this.modelID = modelID;
+    public void setId(Long modelID) {
+        this.id = modelID;
     }
 
     public String getModelName() {
@@ -96,11 +96,24 @@ public class Model {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Model model = (Model) o;
-        return count == model.count && price == model.price && enginePower == model.enginePower && maxWeight == model.maxWeight && Objects.equals(modelID, model.modelID) && Objects.equals(modelName, model.modelName) && Objects.equals(scooters, model.scooters);
+        return count == model.count && price == model.price && enginePower == model.enginePower && maxWeight == model.maxWeight && Objects.equals(id, model.id) && Objects.equals(modelName, model.modelName) && Objects.equals(scooters, model.scooters);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(modelID, modelName, count, price, enginePower, maxWeight, scooters);
+        return Objects.hash(id, modelName, count, price, enginePower, maxWeight, scooters);
+    }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "modelID=" + id +
+                ", modelName='" + modelName + '\'' +
+                ", count=" + count +
+                ", price=" + price +
+                ", enginePower=" + enginePower +
+                ", maxWeight=" + maxWeight +
+                ", scooters=" + scooters +
+                '}';
     }
 }
