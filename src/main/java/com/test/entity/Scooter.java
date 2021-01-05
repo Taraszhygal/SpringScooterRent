@@ -12,10 +12,10 @@ public class Scooter {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private Order order;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
     private Model model;
 
     public Scooter() {
@@ -67,8 +67,7 @@ public class Scooter {
     @Override
     public String toString() {
         return "Scooter{" +
-                "scooterID=" + id +
-                ", model=" + model +
+                "id=" + id +
                 '}';
     }
 }

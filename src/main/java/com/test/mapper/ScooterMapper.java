@@ -12,9 +12,13 @@ public class ScooterMapper {
         ScooterDTO scooterDTO = new ScooterDTO();
         scooterDTO.setScooterID(scooter.getId());
         scooterDTO.setModelName(scooter.getModel().getModelName());
-        scooterDTO.setOrderID(scooter.getOrder().getId());
-        scooterDTO.setEnginePower(scooter.getModel().getEnginePower());
-        scooterDTO.setPrice(scooter.getModel().getPrice());
+        if (scooter.getOrder() != null) {
+            scooterDTO.setOrderID(scooter.getOrder().getId());
+        }
+        if (scooter.getModel() != null) {
+            scooterDTO.setEnginePower(scooter.getModel().getEnginePower());
+            scooterDTO.setPrice(scooter.getModel().getPrice());
+        }
         return scooterDTO;
     }
 

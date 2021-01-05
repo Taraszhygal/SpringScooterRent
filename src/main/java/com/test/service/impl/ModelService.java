@@ -77,4 +77,13 @@ public class ModelService implements IModelService {
         modelDTO.setCount(count);
         updateModel(modelDTO,modelName);
     }
+
+    public void decrementModelCount(String modelName){
+        ModelDTO modelDTO = modelMapper.toDTO(modelRepository.findModelByModelName(modelName));
+        int count = modelDTO.getCount();
+        if(count>0)
+        count--;
+        modelDTO.setCount(count);
+        updateModel(modelDTO,modelName);
+    }
 }

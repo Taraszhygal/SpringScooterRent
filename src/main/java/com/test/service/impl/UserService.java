@@ -64,11 +64,12 @@ public class UserService implements IUserService {
             updatedUser.setFirstName(user.getFirstName());
             updatedUser.setLastName(user.getLastName());
             updatedUser.setMail(user.getMail());
+            updatedUser.setPassword(user.getPassword());
             userRepository.save(updatedUser);
             userDTO = userMapper.toDTO(updatedUser);
             return userDTO;
         } else {
-            throw new ServiceException(400, "User should have an id", null);
+            throw new ServiceException(400, "User should have an id and exist", null);
         }
 
     }

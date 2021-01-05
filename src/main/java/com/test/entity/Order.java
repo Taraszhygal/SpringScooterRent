@@ -13,10 +13,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @DateTimeFormat(pattern = "YYYY-MM-DD hh:mm:ss")
-    private LocalDateTime startLocalDateTime;
+    private String startLocalDateTime;
 
-    @OneToMany(mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
     //@JoinColumn(name = "order_id", nullable = false)
     private List<Scooter> scooterList;
 
@@ -26,14 +25,14 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long orderID, LocalDateTime startLocalDateTime, User user, List<Scooter> scooterList) {
+    public Order(Long orderID, String startLocalDateTime, User user, List<Scooter> scooterList) {
         this.id = orderID;
         this.startLocalDateTime = startLocalDateTime;
         this.user = user;
         this.scooterList = scooterList;
     }
 
-    public LocalDateTime getStartLocalDateTime() {
+    public String getStartLocalDateTime() {
         return startLocalDateTime;
     }
 
@@ -45,7 +44,7 @@ public class Order {
         this.id = orderID;
     }
 
-    public void setStartLocalDateTime(LocalDateTime startLocalDateTime) {
+    public void setStartLocalDateTime(String  startLocalDateTime) {
         this.startLocalDateTime = startLocalDateTime;
     }
 

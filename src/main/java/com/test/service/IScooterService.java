@@ -9,6 +9,8 @@ public interface IScooterService {
 
     List<ScooterDTO> getAllByOrderId(Long id);
 
+    List<ScooterDTO> getScootersByModel(String modelName);
+
     List<ScooterDTO> saveScooter(ScooterDTO scooterDTO);
 
     List<ScooterDTO> deleteScooter(Long id);
@@ -16,4 +18,6 @@ public interface IScooterService {
     ScooterDTO updateScooter(ScooterDTO scooterDTO, Long id);
 
     List<ScooterDTO> getAll();
+
+    List<ScooterDTO> addToOrder(Long orderId, String modelName);
 }
