@@ -68,4 +68,13 @@ public class ModelService implements IModelService {
             throw new ServiceException(400, "User should have an id", null);
         }
     }
+
+    @Override
+    public void incrementModelCount(String modelName){
+        ModelDTO modelDTO = modelMapper.toDTO(modelRepository.findModelByModelName(modelName));
+        int count = modelDTO.getCount();
+        count++;
+        modelDTO.setCount(count);
+        updateModel(modelDTO,modelName);
+    }
 }

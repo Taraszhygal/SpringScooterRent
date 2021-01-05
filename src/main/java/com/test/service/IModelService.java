@@ -11,4 +11,6 @@ public interface IModelService{
     List<ModelDTO> getAll();
     List<ModelDTO> deleteModelById(Long id);
     ModelDTO updateModel(ModelDTO modelDTO, String modelName);
+
+    void incrementModelCount(String modelName);
 }

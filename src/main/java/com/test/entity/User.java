@@ -17,8 +17,8 @@ public class User {
     private String password;
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
- //   @JoinColumn(name = "user_id", nullable = false)
+    @OneToMany( mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
+    //@JoinColumn(name = "user_id", nullable = false)
     private List<Order> orderList;
 
     public User() {

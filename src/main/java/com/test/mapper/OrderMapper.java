@@ -21,7 +21,7 @@ public class OrderMapper {
     public Order toEntity(OrderDTO orderDTO, final User user){
         Order order =new Order();
         order.setId(orderDTO.getOrderID());
-        order.setStartLocalDateTime(order.getStartLocalDateTime());
+        order.setStartLocalDateTime(orderDTO.getStartLocalDateTime());
         order.setUser(user);
         return order;
     }

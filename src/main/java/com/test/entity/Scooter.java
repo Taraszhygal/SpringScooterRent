@@ -1,5 +1,7 @@
 package com.test.entity;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -11,10 +13,10 @@ public class Scooter {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Model model;
+    private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Order order;
+    private Model model;
 
     public Scooter() {
     }

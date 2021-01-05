@@ -3,15 +3,17 @@ package com.test.dto;
 public class ScooterDTO {
     private Long scooterID;
     private String modelName;
+    private Long orderID;
     private int enginePower;
     private int price;
 
     public ScooterDTO() {
     }
 
-    public ScooterDTO(Long scooterID, String modelName, int enginePower, int price) {
+    public ScooterDTO(Long scooterID, String modelName, Long orderID, int enginePower, int price) {
         this.scooterID = scooterID;
         this.modelName = modelName;
+        this.orderID = orderID;
         this.enginePower = enginePower;
         this.price = price;
     }
@@ -46,5 +48,13 @@ public class ScooterDTO {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Long getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(Long orderID) {
+        this.orderID = orderID;
     }
 }

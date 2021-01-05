@@ -18,7 +18,7 @@ public class Model {
     private int maxWeight;
 
     @OneToMany(mappedBy = "model", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  //  @JoinColumn(name = "model_id", nullable = false)
+    //@JoinColumn(name = "model_id", nullable = false)
     private List<Scooter> scooters;
 
     public Model(String modelName, int count, int price, int enginePower, int maxWeight, List<Scooter> scooters) {

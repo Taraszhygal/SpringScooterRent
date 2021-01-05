@@ -16,12 +16,12 @@ public class Order {
     @DateTimeFormat(pattern = "YYYY-MM-DD hh:mm:ss")
     private LocalDateTime startLocalDateTime;
 
+    @OneToMany(mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    //@JoinColumn(name = "order_id", nullable = false)
+    private List<Scooter> scooterList;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private User user;
-
-    @OneToMany( mappedBy = "order",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-  //  @JoinColumn(name = "order_id", nullable = false)
-    private List<Scooter> scooterList;
 
     public Order() {
     }
