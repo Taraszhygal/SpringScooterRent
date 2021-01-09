@@ -8,3 +8,6 @@ University NULP educational program of Application Programming.
 
 # Code written by Taraszhygal
 NULP student
+
+# ER - Diagram
+![alt text](src/main/resourses/diagram/ER_diagram ScooterDB.png)

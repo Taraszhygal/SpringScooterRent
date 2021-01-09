@@ -3,7 +3,6 @@ package com.test.service.impl;
 import com.test.dto.OrderDTO;
 import com.test.dto.ScooterDTO;
 import com.test.entity.Order;
-import com.test.entity.Scooter;
 import com.test.entity.User;
 import com.test.exeption.ServiceException;
 import com.test.mapper.OrderMapper;

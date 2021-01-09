@@ -1,7 +1,6 @@
 package com.test.controller;
 
 import com.test.dto.ModelDTO;
-import com.test.dto.UserDTO;
 import com.test.service.impl.ModelService;
 import org.springframework.web.bind.annotation.*;
 

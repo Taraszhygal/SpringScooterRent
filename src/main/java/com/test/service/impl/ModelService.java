@@ -1,9 +1,7 @@
 package com.test.service.impl;
 
 import com.test.dto.ModelDTO;
-import com.test.dto.UserDTO;
 import com.test.entity.Model;
-import com.test.entity.User;
 import com.test.exeption.ServiceException;
 import com.test.mapper.ModelMapper;
 import com.test.repository.ModelRepository;
