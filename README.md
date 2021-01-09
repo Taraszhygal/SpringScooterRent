@@ -10,4 +10,4 @@ University NULP educational program of Application Programming.
 NULP student
 
 # ER - Diagram
-![alt text](src/main/resourses/diagram/ER_diagram ScooterDB.png)
+![alt text](https://github.com/Taraszhygal/SpringScooterRent/blob/master/src/main/resourses/diagram/ER_diagram%20ScooterDB.png)
