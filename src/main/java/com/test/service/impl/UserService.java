@@ -49,7 +49,7 @@ public class UserService implements IUserService {
     @Override
     public List<UserDTO> getAll() {
         List<User> all = userRepository.findAll();
-        if(all.isEmpty()){
+        if (all.isEmpty()) {
             throw new ServiceException(400, "There aren`t users", null);
         }
         return all.stream().map(userMapper::toDTO).collect(Collectors.toList());
@@ -64,7 +64,6 @@ public class UserService implements IUserService {
             updatedUser.setFirstName(user.getFirstName());
             updatedUser.setLastName(user.getLastName());
             updatedUser.setMail(user.getMail());
-            updatedUser.setPassword(user.getPassword());
             userRepository.save(updatedUser);
             userDTO = userMapper.toDTO(updatedUser);
             return userDTO;

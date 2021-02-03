@@ -5,18 +5,16 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String mail;
-    private String password;
     private String phoneNumber;
 
     public UserDTO() {
     }
 
-    public UserDTO(Long userID, String firstName, String lastName, String mail, String password, String phoneNumber) {
+    public UserDTO(Long userID, String firstName, String lastName, String mail, String phoneNumber) {
         this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
-        this.password = password;
         this.phoneNumber = phoneNumber;
     }
 
@@ -52,14 +50,6 @@ public class UserDTO {
         this.mail = mail;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -75,7 +65,6 @@ public class UserDTO {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", mail='" + mail + '\'' +
-                ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }

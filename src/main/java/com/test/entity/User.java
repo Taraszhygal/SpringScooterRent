@@ -14,7 +14,6 @@ public class User {
     private String lastName;
     @Column(unique = true)
     private String mail;
-    private String password;
     private String phoneNumber;
 
     @OneToMany( mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.REFRESH)
@@ -24,11 +23,10 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String mail, String password, String phoneNumber) {
+    public User(String firstName, String lastName, String mail, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
-        this.password = password;
         this.phoneNumber = phoneNumber;
     }
 
@@ -64,14 +62,6 @@ public class User {
         this.mail = mail;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String  getPhoneNumber() {
         return phoneNumber;
     }
@@ -94,12 +84,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return phoneNumber == user.phoneNumber && Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(mail, user.mail) && Objects.equals(password, user.password) && Objects.equals(orderList, user.orderList);
+        return phoneNumber == user.phoneNumber && Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(mail, user.mail) && Objects.equals(orderList, user.orderList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, mail, password, phoneNumber, orderList);
+        return Objects.hash(id, firstName, lastName, mail, phoneNumber, orderList);
     }
 
     @Override
@@ -109,7 +99,6 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", mail='" + mail + '\'' +
-                ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }

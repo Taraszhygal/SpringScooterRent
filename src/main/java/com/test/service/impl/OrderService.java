@@ -71,7 +71,9 @@ public class OrderService implements IOrderService {
 
     @Override
     public List<ScooterDTO> addToOrder(Long orderId, ScooterDTO scooterDTO) {
-        return scooterService.addToOrder(orderId, scooterDTO.getModelName());
+        List<ScooterDTO> scooterDTOList = scooterService.addToOrder(orderId, scooterDTO.getModelName());
+        updateOrder(getOrderById(orderId), orderId);
+        return scooterDTOList;
     }
 
     @Override
@@ -88,6 +90,9 @@ public class OrderService implements IOrderService {
         if (updatedOrder != null && id != 0) {
             updatedOrder.setUser(order.getUser());
             updatedOrder.setStartLocalDateTime(order.getStartLocalDateTime());
+            updatedOrder.setTotalPrice(order.getScooterList().stream()
+                    .map(e -> e.getModel().getPrice())
+                    .reduce(0, Integer::sum));
             orderRepository.save(updatedOrder);
             return orderMapper.toDTO(updatedOrder);
         } else {

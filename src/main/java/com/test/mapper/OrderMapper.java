@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OrderMapper {
-    public OrderDTO toDTO(Order order){
+    public OrderDTO toDTO(Order order) {
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setOrderID(order.getId());
         orderDTO.setFirstName(order.getUser().getFirstName());
@@ -15,14 +15,16 @@ public class OrderMapper {
         orderDTO.setUserMail(order.getUser().getMail());
         orderDTO.setUserPhoneNumber(order.getUser().getPhoneNumber());
         orderDTO.setStartLocalDateTime(order.getStartLocalDateTime());
+        orderDTO.setTotalPrice(order.getTotalPrice());
         return orderDTO;
     }
 
-    public Order toEntity(OrderDTO orderDTO, final User user){
+    public Order toEntity(OrderDTO orderDTO, final User user) {
         Order order = new Order();
         order.setId(orderDTO.getOrderID());
         order.setStartLocalDateTime(orderDTO.getStartLocalDateTime());
         order.setUser(user);
+        order.setTotalPrice(orderDTO.getTotalPrice());
         return order;
     }
 

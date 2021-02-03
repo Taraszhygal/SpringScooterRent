@@ -1,9 +1,5 @@
 package com.test.dto;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDateTime;
-
 public class OrderDTO {
     private Long orderID;
     private String startLocalDateTime;
@@ -11,17 +7,19 @@ public class OrderDTO {
     private String lastName;
     private String userMail;
     private String userPhoneNumber;
+    private int totalPrice;
 
     public OrderDTO() {
     }
 
-    public OrderDTO(Long orderID, String startLocalDateTime, String firstName, String lastName, String userMail, String userPhoneNumber) {
+    public OrderDTO(Long orderID, String startLocalDateTime, String firstName, String lastName, String userMail, String userPhoneNumber, int totalPrice) {
         this.orderID = orderID;
         this.startLocalDateTime = startLocalDateTime;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userMail = userMail;
         this.userPhoneNumber = userPhoneNumber;
+        this.totalPrice = totalPrice;
     }
 
     public Long getOrderID() {
@@ -62,6 +60,14 @@ public class OrderDTO {
 
     public void setUserMail(String userMail) {
         this.userMail = userMail;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public String getUserPhoneNumber() {

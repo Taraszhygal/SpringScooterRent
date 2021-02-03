@@ -106,7 +106,7 @@ public class ScooterService implements IScooterService {
                 .findFirst()
                 .orElseThrow(() -> new ServiceException(400, "We don`t have free scooters", null));
         scooterDTO.setOrderID(orderId);
-        this.updateScooter(scooterDTO,scooterDTO.getScooterID());
+        this.updateScooter(scooterDTO, scooterDTO.getScooterID());
         return this.getAllByOrderId(orderId);
     }
 }
